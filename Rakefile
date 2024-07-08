@@ -141,12 +141,6 @@ namespace :install do
     end
   end
 
-  desc 'Install ctags'
-  task :ctags do
-    step 'ctags'
-    brew_install 'ctags'
-  end
-
   desc 'Install reattach-to-user-namespace'
   task :reattach_to_user_namespace do
     step 'reattach-to-user-namespace'
@@ -222,13 +216,10 @@ task :install do
   Rake::Task['install:brew'].invoke
   Rake::Task['install:the_silver_searcher'].invoke
   Rake::Task['install:iterm'].invoke
-  Rake::Task['install:ctags'].invoke
   Rake::Task['install:reattach_to_user_namespace'].invoke
   Rake::Task['install:tmux'].invoke
   Rake::Task['install:macvim'].invoke
 
-  # TODO install gem ctags?
-  # TODO run gem ctags?
 
   step 'symlink'
 
